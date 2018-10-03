@@ -6,6 +6,11 @@
     color:aqua;
 }
 
+.errorMsg{
+    color:red;
+    font-size:small;
+}
+
 .fbtitlebar {
     background-color: #3b5998;
     color: white;

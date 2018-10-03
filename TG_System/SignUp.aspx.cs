@@ -11,4 +11,19 @@ public partial class SignUpaspx : System.Web.UI.Page
     {
 
     }
+
+    protected void Select_dept(object source, ServerValidateEventArgs args)
+    {
+        if(Page.IsValid)
+            args.IsValid = false;
+        return;
+
+        if (dept.SelectedItem.ToString().Equals("Select"))
+        {
+            args.IsValid = false;
+            return;
+        }
+        args.IsValid = true;
+        
+    }
 }
