@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+        <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
         <div class="card">  
             <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;Create your account here!" runat="server" Width="100%" Height="50"  />  
             <br />
@@ -57,7 +57,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cpwd" Display="None" ErrorMessage="Please retype your password" CssClass="errorMsg"/>
             </p>
             <p style="margin-left: 150px">
-                &nbsp;&nbsp;<asp:Button CssClass="transparentButton" ID="signInButton" runat="server" Text="Sign In Instead" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;<asp:Button CssClass="transparentButton" ID="signInButton" runat="server" Text="Sign In Instead" OnClick="signInButton_Click" CausesValidation="false"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button CssClass="transparentButton" ID="signUpButton" runat="server" Text="SignUp" OnClick="signUpButton_Click" />
             </p>
             <p>

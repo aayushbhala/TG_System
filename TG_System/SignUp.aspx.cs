@@ -50,4 +50,9 @@ public partial class SignUpaspx : System.Web.UI.Page
         dept.ClearSelection();
 
     }
+
+    protected void signInButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SignIn.aspx");
+    }
 }
