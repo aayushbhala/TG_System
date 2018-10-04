@@ -1,0 +1,1 @@
+﻿INSERT INTO Admin(Name,Username,Email,Number,Password) VALUES ('John Doe','admin_john','johndoe@example.com',8877668899,'123');

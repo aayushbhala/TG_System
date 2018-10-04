@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
         <div class="card">  
-            <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;Create your account here!" runat="server" Width="100%" Height="50"  />  
+            <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;Create your account here!" runat="server" Width="100%" Height="50" />  
             <br />
             <br />
             <br />

@@ -25,6 +25,10 @@
                 <asp:TextBox ID="loginPwd" runat="server" Width="85%" TextMode="Password"/>
                 <br />
                 <br />
+                <asp:Label ID="errLabelSignIn" Text="" runat="server" />
+                <br />
+                <br />
+                <asp:Button ID="signInBtn" Text="Login" CssClass="transparentButton" runat="server" OnClick="signInBtn_Click" />
                 <br />
                 <br />
                 <p style="font-size:12px">

@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewsFeed.master.cs" Inherits="NewsFeed" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <link href="SideNav.css" rel="stylesheet" type="text/css" />
+        <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;&nbsp;&nbsp;Welcome XYZ!" runat="server" Width="100%" Height="50"  />
+        <div class="sidenav">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#clients">Clients</a>
+            <a href="#contact">Contact</a>
+        </div>
+    <div style="margin-left:160px">
+
+        <asp:ContentPlaceHolder id="mainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
