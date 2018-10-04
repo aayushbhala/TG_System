@@ -14,13 +14,14 @@ public partial class NewsFeed : System.Web.UI.MasterPage
         ContentPlaceHolder contentPlaceHolder = (ContentPlaceHolder)this.FindControl("tabsContent");
         string[] tabsContent = { "Profile", "Show Slots", "Notification", "Report" };
         string userType = (string)cookie["UserType"];
-        Label1.Text += (string)cookie["UserName"];
+        if(!IsPostBack)
+            Label1.Text += (string)cookie["UserName"];
         int len;
         string type = "";
         if (userType.Equals("Admin"))
         {
             len = tabsContent.Length;
-            type += "ADM";
+            type += "AD";
         }
         else
         {
@@ -38,8 +39,22 @@ public partial class NewsFeed : System.Web.UI.MasterPage
             btn.ControlStyle.CssClass = "Initial";
             btn.Width = Unit.Percentage(len%2==0?25:i==0?34:33);
             btn.Font.Size = 12;
+            btn.Click += tab_click;
             contentPlaceHolder.Controls.Add(btn);
 
         }
     }
+    protected void tab_click(Object o,EventArgs args)
+    {
+        Button btn = (Button)o;
+        btn.ForeColor = Color.Red;
+        string redirect = btn.ID.ToString().Substring(2, 1);
+        switch (redirect) {
+            case "0":Response.Redirect("ProfilePage.aspx");
+                break;
+            default:Response.Redirect("NotificationPage.aspx");
+                break;
+        }
+    }
+
 }

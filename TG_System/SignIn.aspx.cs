@@ -57,6 +57,11 @@ public partial class SignIn : System.Web.UI.Page
             if (reader["Password"].ToString().Equals(loginPwd.Text.ToString()))
             {
                 cookie["UserName"] = loginUname.Text.ToString();
+                cookie["Name"] = reader["Name"].ToString();
+                cookie["Email"] = reader["Email"].ToString();
+                cookie["Number"] = reader["Phone"].ToString();
+                if(table.Equals("Teacher"))
+                    cookie["Department"] = reader["Department"].ToString();
                 Response.Cookies.Add(cookie);
                 Response.Redirect("ProfilePage.aspx");
             }
