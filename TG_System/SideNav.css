@@ -26,7 +26,7 @@
     }
 
         .sidenav a:hover {
-            color: #f1f1f1;
+            color: black;
         }
 
 .main {
@@ -54,27 +54,10 @@
     display: inline-block;
     line-height: 45px;
 }
-
-.Initial {
-    display: block;
-    padding: 4px 18px 4px 18px;
-    float: left;
-    background: url("../Images/InitialImage.png") no-repeat right top;
-    color: Black;
-    font-weight: bold;
+ .Initial {
+    color:black;
 }
 
     .Initial:hover {
-        color: White;
-        background: url("../Images/SelectedButton.png") no-repeat right top;
+        color:red;
     }
-
-.Clicked {
-    float: left;
-    display: block;
-    background: url("../Images/SelectedButton.png") no-repeat right top;
-    padding: 4px 18px 4px 18px;
-    color: Black;
-    font-weight: bold;
-    color: White;
-}

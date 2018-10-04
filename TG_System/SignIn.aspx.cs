@@ -31,13 +31,16 @@ public partial class SignIn : System.Web.UI.Page
     protected void signInBtn_Click(object sender, EventArgs e)
     {
         Boolean isAdmin = loginUname.Text.ToString().Contains("admin_");
+        HttpCookie cookie = new HttpCookie("UserDetails");
         string table="";
         if (!isAdmin)
         {
+            cookie["UserType"] = "Teacher";
             table += "Teacher";
         }
         else
         {
+            cookie["UserType"] = "Admin";
             table += "Admin";
         }
         string query = "SELECT * FROM " + table + " WHERE Username = @username;";
@@ -53,7 +56,9 @@ public partial class SignIn : System.Web.UI.Page
             reader.Read();
             if (reader["Password"].ToString().Equals(loginPwd.Text.ToString()))
             {
-                Response.Redirect("AdminPage.aspx");
+                cookie["UserName"] = loginUname.Text.ToString();
+                Response.Cookies.Add(cookie);
+                Response.Redirect("ProfilePage.aspx");
             }
             else
             {
