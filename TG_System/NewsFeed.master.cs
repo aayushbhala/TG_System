@@ -46,11 +46,18 @@ public partial class NewsFeed : System.Web.UI.MasterPage
     }
     protected void tab_click(Object o,EventArgs args)
     {
+        HttpCookie cookie = Request.Cookies["UserDetails"];
+        string type = (string)cookie["UserType"];
         Button btn = (Button)o;
         btn.ForeColor = Color.Red;
         string redirect = btn.ID.ToString().Substring(2, 1);
         switch (redirect) {
             case "0":Response.Redirect("ProfilePage.aspx");
+                break;
+            case "1":if (type.Equals("Admin"))
+                    Response.Redirect("ShowSlotsPage.aspx");
+                else
+                    Response.Redirect("ShowSlotsPageTeacher.aspx");
                 break;
             default:Response.Redirect("NotificationPage.aspx");
                 break;
