@@ -33,15 +33,18 @@ public partial class SignIn : System.Web.UI.Page
         Boolean isAdmin = loginUname.Text.ToString().Contains("admin_");
         HttpCookie cookie = new HttpCookie("UserDetails");
         string table="";
+        string ID = "";
         if (!isAdmin)
         {
             cookie["UserType"] = "Teacher";
             table += "Teacher";
+            ID += "TID";
         }
         else
         {
             cookie["UserType"] = "Admin";
             table += "Admin";
+            ID += "AID";
         }
         string query = "SELECT * FROM " + table + " WHERE Username = @username;";
         SqlConnection con = new SqlConnection();
@@ -60,6 +63,7 @@ public partial class SignIn : System.Web.UI.Page
                 cookie["Name"] = reader["Name"].ToString();
                 cookie["Email"] = reader["Email"].ToString();
                 cookie["Number"] = reader["Phone"].ToString();
+                cookie["ID"] = reader[ID].ToString();
                 if(table.Equals("Teacher"))
                     cookie["Department"] = reader["Department"].ToString();
                 Response.Cookies.Add(cookie);

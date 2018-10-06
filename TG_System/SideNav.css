@@ -4,6 +4,13 @@
     padding: 0;
 }
 
+.transparentButton {
+    background-color: transparent;
+    border: none;
+    color: #3b5998;
+    font-size: medium;
+}
+
 .sidenav {
     height: 100%;
     width: 160px;
