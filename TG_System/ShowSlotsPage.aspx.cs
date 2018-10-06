@@ -14,7 +14,7 @@ public partial class _Default : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection();
         con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
-        string query = "SELECT SID,Student.Department AS Department,Section,Teacher.Name AS Name,count(*) AS Total FROM Student FULL OUTER JOIN Teacher ON Student.TID = Teacher.TID GROUP BY SID,Student.Department,Section,Teacher.Name;";
+        string query = "SELECT SID,Student.Department AS Department,Section,Teacher.Name AS Name,count(*) AS Total FROM Student LEFT JOIN Teacher ON Student.TID = Teacher.TID GROUP BY SID,Student.Department,Section,Teacher.Name;";
         try
         {
             con.Open();

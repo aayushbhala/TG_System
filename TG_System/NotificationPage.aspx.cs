@@ -20,7 +20,7 @@ public partial class _Default : System.Web.UI.Page
             HttpCookie cookie = Request.Cookies["UserDetails"];
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
-            string[] query = {"SELECT Sender,Teacher.Name AS Name,Receiver,Timestamp From Notification,Teacher WHERE Teacher.TID = Notification.Sender AND (Receiver = 0 OR Receiver = @ID);",
+            string[] query = {"SELECT MID,Sender,Teacher.Name AS Name,Receiver,Timestamp From Notification,Teacher WHERE Teacher.TID = Notification.Sender AND (Receiver = 0 OR Receiver = @ID);",
                 "SELECT Sender,Admin.Name AS Name,Receiver,Timestamp From Notification,Admin WHERE Admin.AID = Notification.Sender AND Receiver = @ID ;" };
             int t = 0;
             string[] res = {" sent you a request!", " approved your request!" };
@@ -52,19 +52,34 @@ public partial class _Default : System.Web.UI.Page
                     textDIV.Style.Add("display", "inline");
                     textDIV.Style.Add("float", "left");
                     textDIV.InnerHtml = reader["Name"].ToString() + res[t];
+                    HtmlGenericControl deleteDIV = new HtmlGenericControl("DIV");
+                    deleteDIV.Style.Add("display", "inline");
+                    deleteDIV.Style.Add("float", "right");
+                    deleteDIV.Style.Add("margin-right", "25px");
+                    Button del_btn = new Button();
+                    del_btn.Text = "Delete";
+                    del_btn.CommandArgument = reader["Sender"].ToString()+"$"+reader["MID"].ToString();
+                    del_btn.CssClass = "transparentButton";
+                    del_btn.Command += delete_action;
+                    del_btn.ForeColor = Color.Red;
                     HtmlGenericControl approveDiv = new HtmlGenericControl("DIV");
                     approveDiv.Style.Add("display","inline");
                     approveDiv.Style.Add("float", "right");
-                    approveDiv.Style.Add("margin-right", "25px");
+                    approveDiv.Style.Add("margin-right", "5px");
                     Button btn = new Button();
                     btn.Text = "Approve";
                     btn.CommandArgument = reader["Sender"].ToString();
                     btn.CssClass = "transparentButton";
                     btn.Command += approve_action;
                     if (t == 1)
+                    {
                         btn.Visible = false;
+                        del_btn.Visible = false;
+                    }
+                    deleteDIV.Controls.Add(del_btn);
                     approveDiv.Controls.Add(btn);
                     createDIV.Controls.Add(textDIV);
+                    createDIV.Controls.Add(deleteDIV);
                     createDIV.Controls.Add(approveDiv);
                     NotificationContainer.Controls.Add(createDIV);
                     i++;
@@ -103,6 +118,34 @@ public partial class _Default : System.Web.UI.Page
         catch(Exception err)
         {
             errLabel.Text = "Unable to approve your request! " + err;
+            errLabel.ForeColor = Color.Red;
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+
+    protected void delete_action(Object o,CommandEventArgs e)
+    {
+        HttpCookie cookie = Request.Cookies["UserDetails"];
+        SqlConnection con = new SqlConnection();
+        con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+        string query = "DELETE FROM Notification WHERE Sender=@sender_id AND MID=@msg_id;";
+        string[] args = e.CommandArgument.ToString().Split('$');
+        try
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue ("@sender_id", args[0]);
+            cmd.Parameters.AddWithValue("@msg_id", args[1]);
+            cmd.ExecuteNonQuery();
+            Response.Redirect("NotificationPage.aspx");
+            
+        }
+        catch(Exception err)
+        {
+            errLabel.Text = "Unable to delete the request! " + err;
             errLabel.ForeColor = Color.Red;
         }
         finally

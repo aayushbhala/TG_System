@@ -1,0 +1,1 @@
+﻿SELECT SID,Student.Department AS Department,Section,Teacher.Name AS Name,count(*) AS Total FROM Student LEFT JOIN Teacher ON Student.TID = Teacher.TID GROUP BY SID,Student.Department,Section,Teacher.Name;
