@@ -8,7 +8,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
-
+using System.Web.Configuration;
 
 public partial class SignIn : System.Web.UI.Page
 {
@@ -48,7 +48,7 @@ public partial class SignIn : System.Web.UI.Page
         }
         string query = "SELECT * FROM " + table + " WHERE Username = @username;";
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = @"Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=Project;Integrated Security=True;Pooling=False";
+        con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
         try
         {
             con.Open();

@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Web.UI.HtmlControls;
 using System.Globalization;
+using System.Web.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -19,7 +20,7 @@ public partial class _Default : System.Web.UI.Page
         
             HttpCookie cookie = Request.Cookies["UserDetails"];
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+            con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
             string[] query = {"SELECT MID,Sender,Teacher.Name AS Name,Receiver,Timestamp From Notification,Teacher WHERE Teacher.TID = Notification.Sender AND (Receiver = 0 OR Receiver = @ID);",
                 "SELECT Sender,Admin.Name AS Name,Receiver,Timestamp From Notification,Admin WHERE Admin.AID = Notification.Sender AND Receiver = @ID ;" };
             int t = 0;
@@ -100,7 +101,7 @@ public partial class _Default : System.Web.UI.Page
     {
         HttpCookie cookie = Request.Cookies["UserDetails"];
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+        con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
         string query = "DELETE FROM Notification WHERE Sender=@sender_id;";
         string insert_query = "INSERT INTO Notification(Sender,Receiver) VALUES(@sender_id,@receiver_id);";
         try
@@ -130,7 +131,7 @@ public partial class _Default : System.Web.UI.Page
     {
         HttpCookie cookie = Request.Cookies["UserDetails"];
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+        con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
         string query = "DELETE FROM Notification WHERE Sender=@sender_id AND MID=@msg_id;";
         string[] args = e.CommandArgument.ToString().Split('$');
         try

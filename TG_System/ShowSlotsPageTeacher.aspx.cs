@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -15,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+            con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
             string query = "SELECT SID,Student.Department AS Department,Section,count(*) AS Total FROM Student FULL OUTER JOIN Teacher ON Student.TID = Teacher.TID GROUP BY SID,Student.Department,Section,Teacher.Name HAVING Teacher.Name IS NULL;";
             try
             {
