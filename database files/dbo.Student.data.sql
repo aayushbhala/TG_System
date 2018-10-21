@@ -1,0 +1,5 @@
+INSERT INTO [dbo].[Student] ([Reg No], [Name], [Department], [Section], [Roll No], [TID], [SID]) VALUES (150905378, N'ABC', N'CSE', N'B', 60, 2, 1)
+INSERT INTO [dbo].[Student] ([Reg No], [Name], [Department], [Section], [Roll No], [TID], [SID]) VALUES (150905380, N'XYZ', N'CSE', N'B', 65, NULL, 2)
+INSERT INTO [dbo].[Student] ([Reg No], [Name], [Department], [Section], [Roll No], [TID], [SID]) VALUES (150905382, N'SDFK', N'CSE', N'B', 70, 2, 1)
+INSERT INTO [dbo].[Student] ([Reg No], [Name], [Department], [Section], [Roll No], [TID], [SID]) VALUES (150905388, N'ADK', N'CSE', N'B', 80, NULL, 2)
+INSERT INTO [dbo].[Student] ([Reg No], [Name], [Department], [Section], [Roll No], [TID], [SID]) VALUES (190359009, N'SDHF', N'IT', N'A', 89, NULL, 3)
