@@ -24,12 +24,15 @@
     padding-top: 20px;
 }
 
-    .sidenav a {
+    .sidenavButton {
         padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 18px;
         color: #818181;
         display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
 
         .sidenav a:hover {

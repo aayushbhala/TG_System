@@ -15,10 +15,11 @@
     <link href="SideNav.css" rel="stylesheet" type="text/css" />
         <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;&nbsp;&nbsp;Welcome " runat="server" Width="100%" Height="50"  />
         <div class="sidenav">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#clients">Clients</a>
-            <a href="#contact">Contact</a>
+            <asp:Button class="sidenavButton" id="sideNav_about" runat="server" Text="About" OnClick="sideNav_about_Click"/>
+            <asp:Button class="sidenavButton" id="sideNav_services" runat="server" Text="Services" OnClick="sideNav_services_Click"/>
+            <asp:Button class="sidenavButton" id="sideNav_clients" runat="server" Text="Clients" OnClick="sideNav_clients_Click"/>
+            <asp:Button class="sidenavButton" id="sideNav_contact" runat="server" Text="Contact" OnClick="sideNav_contact_Click"/>
+            <asp:Button class="sidenavButton" id="sideNav_logout" runat="server" Text="Log Out" OnClick="sideNav_logout_Click"/>
         </div>
         
     <div style="margin-left:160px">
