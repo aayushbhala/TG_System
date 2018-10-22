@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -59,9 +58,41 @@ public partial class NewsFeed : System.Web.UI.MasterPage
                 else
                     Response.Redirect("ShowSlotsPageTeacher.aspx");
                 break;
-            default:Response.Redirect("NotificationPage.aspx");
+            case "2": Response.Redirect("NotificationPage.aspx");
+                break;
+            case "3": Response.Redirect("ReportPage.aspx");
                 break;
         }
     }
 
+
+    protected void sideNav_about_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void sideNav_services_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void sideNav_clients_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void sideNav_contact_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void sideNav_logout_Click(object sender, EventArgs e)
+    {
+        // Deleting user info cookie
+        HttpCookie cookie = new HttpCookie("UserDetails");
+        cookie.Expires = DateTime.Now.AddDays(-1);
+        Response.Cookies.Add(cookie);
+
+        Response.Redirect("SignIn.aspx");
+    }
 }

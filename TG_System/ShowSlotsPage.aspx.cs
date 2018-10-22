@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = @"Data Source = (localdb)\MSSQLlocalDB;Initial Catalog = Project;Integrated Security = True;Pooling = False;";
+        con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
         string query = "SELECT SID,Student.Department AS Department,Section,Teacher.Name AS Name,count(*) AS Total FROM Student LEFT JOIN Teacher ON Student.TID = Teacher.TID GROUP BY SID,Student.Department,Section,Teacher.Name;";
         try
         {
@@ -32,6 +33,16 @@ public partial class _Default : System.Web.UI.Page
         finally
         {
             con.Close();
+        }
+    }
+
+    protected void assignBtn_Command(object sender, CommandEventArgs e)
+    {
+        if (e.CommandName == "assign")
+        {
+            string SID = e.CommandArgument.ToString();
+            System.Diagnostics.Debug.WriteLine(SID);
+            Response.Redirect("SelectTeacherPage.aspx?SID=" + SID);
         }
     }
 }

@@ -12,11 +12,23 @@
                 <ItemTemplate>
                 <%# Container.DataItemIndex + 1 %>
             </ItemTemplate>
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
-            <asp:BoundField AccessibleHeaderText="Department" DataField="Department" HeaderText="Department" ItemStyle-HorizontalAlign="Center"/>
-            <asp:BoundField AccessibleHeaderText="Section" DataField="Section" HeaderText="Section" ItemStyle-HorizontalAlign="Center"/>
-            <asp:BoundField AccessibleHeaderText="Teacher Assigned" DataField="Name" HeaderText="Teacher Assigned" ItemStyle-HorizontalAlign="Center"/>
-            <asp:ButtonField HeaderText="Action" Text="Assign" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField AccessibleHeaderText="Department" DataField="Department" HeaderText="Department" ItemStyle-HorizontalAlign="Center">
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField AccessibleHeaderText="Section" DataField="Section" HeaderText="Section" ItemStyle-HorizontalAlign="Center">
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField AccessibleHeaderText="Teacher Assigned" DataField="Name" HeaderText="Teacher Assigned" ItemStyle-HorizontalAlign="Center">
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+            </asp:BoundField>
+            <asp:TemplateField HeaderText="Action" ShowHeader="False">
+                <ItemTemplate>
+                    <asp:LinkButton ID="assignBtn" runat="server" CommandName="assign" Text="Assign" CommandArgument='<%#Eval("SID") %>' OnCommand="assignBtn_Command"/>
+                </ItemTemplate>
+                <ItemStyle HorizontalAlign="Center" />
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
     <asp:Label ID="errLabel" runat="server" Text="" ForeColor="Red"></asp:Label>
