@@ -11,10 +11,17 @@
                 <ItemTemplate>
                 <%# Container.DataItemIndex + 1 %>
             </ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="Name" />
             <asp:BoundField HeaderText="Department" DataField="Department" />
-            <asp:ButtonField HeaderText="Action" CommandName="assign" Text="Assign" ItemStyle-HorizontalAlign="Center"/>
+             <asp:TemplateField HeaderText="Action" ShowHeader="False">
+                 <ItemTemplate>
+                     <asp:LinkButton ID="assignTGBtn" runat="server" CommandName="assign" Text="Assign" OnCommand="assignTGBtn_Command" CommandArgument='<%# Eval("TID") %>'/>
+                 </ItemTemplate>
+                 <ItemStyle HorizontalAlign="Center" />
+             </asp:TemplateField>
         </Columns>
     </asp:GridView>
     <br />
