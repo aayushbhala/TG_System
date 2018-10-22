@@ -35,4 +35,14 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
         }
     }
+
+    protected void assignBtn_Command(object sender, CommandEventArgs e)
+    {
+        if (e.CommandName == "assign")
+        {
+            string SID = e.CommandArgument.ToString();
+            System.Diagnostics.Debug.WriteLine(SID);
+            Response.Redirect("SelectTeacherPage.aspx?SID=" + SID);
+        }
+    }
 }
