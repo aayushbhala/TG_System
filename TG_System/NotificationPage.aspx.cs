@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
             SqlConnection con = new SqlConnection();
             con.ConnectionString = WebConfigurationManager.ConnectionStrings["mainDB"].ConnectionString;
             string[] query = {"SELECT MID,Sender,Teacher.Name AS Name,Receiver,Timestamp From Notification,Teacher WHERE Teacher.TID = Notification.Sender AND (Receiver = 0 OR Receiver = @ID);",
-                "SELECT Sender,Admin.Name AS Name,Receiver,Timestamp From Notification,Admin WHERE Admin.AID = Notification.Sender AND Receiver = @ID ;" };
+                "SELECT MID,Sender,Admin.Name AS Name,Receiver,Timestamp From Notification,Admin WHERE Admin.AID = Notification.Sender AND Receiver = @ID ;" };
             int t = 0;
             string[] res = {" sent you a request!", " approved your request!" };
             string ID = cookie["ID"].ToString();

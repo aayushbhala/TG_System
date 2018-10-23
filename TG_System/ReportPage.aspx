@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="tabsContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="restContent" Runat="Server">
+    <div style="padding-left:15px;">
     Select any of the filters below to customize the report.<br />
     
     Department: 
@@ -34,24 +35,33 @@
 
     <asp:Panel ID="reportPanel" runat="server" Visible="false">
         <h2>Information on Assigned Slots:</h2><br />
-        <asp:GridView ID="displayRepAssigned" runat="server"  Width="100%"/>
+        <asp:GridView ID="displayRepAssigned" runat="server"  Width="100%">
+            <RowStyle HorizontalAlign="Center" />
+        </asp:GridView>
         <br />
         <br />
 
         <h3>Slot Info</h3><br />
-        <asp:GridView ID="displayRepAssignedSlots" runat="server" Width="100%"/>
+        <asp:GridView ID="displayRepAssignedSlots" runat="server" Width="100%">
+            <RowStyle HorizontalAlign="Center" />
+        </asp:GridView>
         <br />
         <br />
 
         <h2>Information on Vacant Slots:</h2><br />
-        <asp:GridView ID="displayRepVacant" runat="server" Width="100%"/>
+        <asp:GridView ID="displayRepVacant" runat="server" Width="100%">
+            <RowStyle HorizontalAlign="Center" />
+        </asp:GridView>
         <br />
         <br />
 
         <h3>Slot Info</h3><br />
-        <asp:GridView ID="displayRepVacantSlots" runat="server" Width="100%"/>
+        <asp:GridView ID="displayRepVacantSlots" runat="server" Width="100%">
+            <RowStyle HorizontalAlign="Center" />
+        </asp:GridView>
         <br />
     <br />
     </asp:Panel>
+        </div>
 </asp:Content>
 
