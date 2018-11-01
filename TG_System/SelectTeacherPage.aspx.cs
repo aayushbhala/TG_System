@@ -63,6 +63,7 @@ public partial class _Default : System.Web.UI.Page
             conn.Open();
             cmd.ExecuteNonQuery();
             cmd2.ExecuteNonQuery();
+            Response.Redirect("ShowSlotsPage.aspx");
         }
         catch (Exception err)
         {

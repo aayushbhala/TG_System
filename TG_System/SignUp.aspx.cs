@@ -28,6 +28,7 @@ public partial class SignUpaspx : System.Web.UI.Page
             con.Open();    
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
+            Response.Redirect("SignIn.aspx");
         }catch(Exception err)
         {
             string text = ("An error has occured " + query+"\n"+err);

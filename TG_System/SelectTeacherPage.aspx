@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="tabsContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="restContent" Runat="Server">
-    <asp:GridView ID="teachersList" runat="server">
+    <asp:GridView ID="teachersList" runat="server" AutoGenerateColumns="false" Width="100%">
+         <RowStyle HorizontalAlign="Center" />
         <Columns>
              <asp:TemplateField AccessibleHeaderText="Sl No." HeaderText="Sl No." ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
