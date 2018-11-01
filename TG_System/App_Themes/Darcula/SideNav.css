@@ -1,0 +1,73 @@
+﻿body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.transparentButton {
+    background-color: transparent;
+    border: none;
+    color: #3b5998;
+    font-size: medium;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    border-right:groove;
+    background-color: #eee;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+    .sidenavButton {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+        .sidenav a:hover {
+            color: black;
+        }
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.fbtitlebar {
+    background-color: #3b5998;
+    color: white;
+    height: 55px;
+    margin: 0;
+    font-size: 30px;
+    display: inline-block;
+    line-height: 45px;
+}
+ .Initial {
+    color:black;
+}
+
+    .Initial:hover {
+        color:red;
+    }

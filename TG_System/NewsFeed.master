@@ -20,6 +20,16 @@
             <asp:Button class="sidenavButton" id="sideNav_clients" runat="server" Text="Clients" OnClick="sideNav_clients_Click"/>
             <asp:Button class="sidenavButton" id="sideNav_contact" runat="server" Text="Contact" OnClick="sideNav_contact_Click"/>
             <asp:Button class="sidenavButton" id="sideNav_logout" runat="server" Text="Log Out" OnClick="sideNav_logout_Click"/>
+            <br />
+            <div style="color:black;margin-left:15px;">
+            <h3>Themes</h3>
+            </div>
+            <asp:RadioButtonList ID="ThemeRadioButtonList" runat="server" CssClass="sidenavButton" OnSelectedIndexChanged="ThemeRadioButtonList_SelectedIndexChanged" AutoPostBack="true">
+                <asp:ListItem Selected="True">Light</asp:ListItem>
+                <asp:ListItem>Darcula</asp:ListItem>
+
+            </asp:RadioButtonList>
+            <asp:Label ID="err" runat="server"/>
         </div>
         
     <div style="margin-left:160px">

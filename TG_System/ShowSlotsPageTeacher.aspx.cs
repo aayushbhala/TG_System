@@ -75,4 +75,19 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["Theme"] != null)
+        {
+            RadioButtonList themeList = (RadioButtonList)this.Master.FindControl("ThemeRadioButtonList");
+            if (Session["Theme"].ToString().Equals("Darcula"))
+            {
+                themeList.SelectedIndex = 1;
+            }
+            else
+                themeList.SelectedIndex = 0;
+            Page.Theme = Session["Theme"].ToString();
+        }
+    }
 }

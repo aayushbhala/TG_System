@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewsFeed.master" AutoEventWireup="true" CodeFile="ProfilePage.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewsFeed.master" AutoEventWireup="true" CodeFile="ProfilePage.aspx.cs" Inherits="_Default" Theme="Light" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     
@@ -7,7 +7,6 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="restContent" runat="server">
-    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     <div class="card" style="width:700px;height:400px;top:55%;left:55%;">
         <div class="box">
         <img src="default-gmail-profile-picture.jpg" style="border-style: groove; border-color: inherit; border-width: medium; height: 192px; width: 163px; margin-bottom: 10px;margin-left:10px;margin-top:10px;margin-right:35px; "/>

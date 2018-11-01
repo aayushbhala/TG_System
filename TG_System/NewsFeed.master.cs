@@ -95,4 +95,11 @@ public partial class NewsFeed : System.Web.UI.MasterPage
 
         Response.Redirect("SignIn.aspx");
     }
+
+    protected void ThemeRadioButtonList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["Theme"] = ThemeRadioButtonList.SelectedItem.ToString();
+        System.Diagnostics.Debug.WriteLine(Request.FilePath.ToString());
+        Response.Redirect(Request.FilePath);
+    }
 }
