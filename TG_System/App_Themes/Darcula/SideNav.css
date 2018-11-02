@@ -18,22 +18,32 @@
     z-index: 1;
     top: 50px;
     left: 0;
-    border-right:groove;
+    border-top:groove;
+    border-right: groove;
     background-color: #eee;
     overflow-x: hidden;
     padding-top: 20px;
 }
 
-    .sidenavButton {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #818181;
-        display: block;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-    }
+.themeHeading {
+    color: black;
+    width: 100%;
+    text-align: left;
+    padding-left: 6px;
+    color: black;
+}
+
+.sidenavButton {
+    padding: 6px 8px 6px 6px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: left;
+    color: black;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
 
         .sidenav a:hover {
             color: black;

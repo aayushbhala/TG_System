@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewsFeed.master.cs" Inherits="NewsFeed" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewsFeed.master.cs" Inherits="NewsFeed" EnableTheming="true" %>
 
 <!DOCTYPE html>
 
@@ -12,22 +12,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <link href="SideNav.css" rel="stylesheet" type="text/css" />
+    
         <asp:Label ID="Label1" CssClass="fbtitlebar" Text="&nbsp;&nbsp;&nbsp;&nbsp;Welcome " runat="server" Width="100%" Height="50"  />
         <div class="sidenav">
-            <asp:Button class="sidenavButton" id="sideNav_about" runat="server" Text="About" OnClick="sideNav_about_Click"/>
-            <asp:Button class="sidenavButton" id="sideNav_services" runat="server" Text="Services" OnClick="sideNav_services_Click"/>
-            <asp:Button class="sidenavButton" id="sideNav_clients" runat="server" Text="Clients" OnClick="sideNav_clients_Click"/>
-            <asp:Button class="sidenavButton" id="sideNav_contact" runat="server" Text="Contact" OnClick="sideNav_contact_Click"/>
-            <asp:Button class="sidenavButton" id="sideNav_logout" runat="server" Text="Log Out" OnClick="sideNav_logout_Click"/>
             <br />
-            <div style="color:black;margin-left:15px;">
+            <br />
+
+            <asp:Button class="sidenavButton" id="sideNav_logout" runat="server" Text="Log Out" OnClick="sideNav_logout_Click" Width="100%"/>
+            <br />
+            <div class="themeHeading">
             <h3>Themes</h3>
             </div>
-            <asp:RadioButtonList ID="ThemeRadioButtonList" runat="server" CssClass="sidenavButton" OnSelectedIndexChanged="ThemeRadioButtonList_SelectedIndexChanged" AutoPostBack="true">
+            <asp:RadioButtonList ID="ThemeRadioButtonList" runat="server" CssClass="sidenavButton" OnSelectedIndexChanged="ThemeRadioButtonList_SelectedIndexChanged" AutoPostBack="true" Width="100%">
                 <asp:ListItem Selected="True">Light</asp:ListItem>
                 <asp:ListItem>Darcula</asp:ListItem>
-
             </asp:RadioButtonList>
             <asp:Label ID="err" runat="server"/>
         </div>
